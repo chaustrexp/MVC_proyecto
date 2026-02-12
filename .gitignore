@@ -1,0 +1,29 @@
+# Archivos de configuración local
+Conexion.php
+
+# Archivos temporales
+*.tmp
+*.log
+*.swp
+*.bak
+
+# Carpetas del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-*
+
+# Dependencias (si usas composer en el futuro)
+/vendor/
+
+# Archivos de sesión PHP
+/sessions/
+
+# Archivos subidos por usuarios (si los hay)
+/uploads/
+
+# Variables de entorno
+.env
