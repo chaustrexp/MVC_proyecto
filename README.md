@@ -1,17 +1,31 @@
-# 🎯 Sistema de Gestión Ágil - SENA (Estructura MVC)
+# 🎯 Sistema de Gestión Ágil - SENA
 
-Sistema web de gestión de Historias de Usuario y Criterios de Aceptación desarrollado con PHP puro, MySQL y CSS usando arquitectura MVC.
+![SENA](https://img.shields.io/badge/SENA-Sistema%20de%20Gestión-39A900?style=for-the-badge)
+![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-5.7+-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-## 📋 Características
+Sistema web completo de gestión de Historias de Usuario y Criterios de Aceptación desarrollado con PHP puro, MySQL y CSS usando arquitectura MVC (Modelo-Vista-Controlador) para el Servicio Nacional de Aprendizaje (SENA).
 
-- ✅ CRUD completo de Historias de Usuario
-- 🏗️ Arquitectura MVC (Modelo-Vista-Controlador)
-- 🎨 Diseño moderno tipo Dashboard administrativo
-- 🟢 Paleta de colores institucional SENA
-- 🔐 Sistema de login con sesiones
-- 📊 Múltiples módulos (Ambiente, Competencia)
-- 📱 Diseño responsive
-- 🔒 Seguridad con prepared statements
+## ✨ Características Principales
+
+- ✅ **Arquitectura MVC** - Separación clara de responsabilidades
+- ✅ **Dashboard Interactivo** - Panel de control con estadísticas en tiempo real
+- ✅ **CRUD Completo** - Gestión completa de Historias de Usuario
+- 🎨 **Diseño Moderno** - Interfaz tipo Dashboard administrativo
+- 🟢 **Colores Institucionales SENA** - Verde Principal (#39A900) y Secundario (#007832)
+- 🔐 **Sistema de Login** - Autenticación con sesiones seguras
+- 📊 **Múltiples Módulos** - Ambiente, Competencia, Asignación, Calendario, etc.
+- 📱 **Diseño Responsive** - Adaptable a todos los dispositivos
+- 🔒 **Seguridad** - Prepared statements y validación de datos
+- 📈 **Gráficos Visuales** - Estadísticas con barras de progreso y círculos SVG
+
+## 🚀 Tecnologías Utilizadas
+
+- **Backend:** PHP 7.4+ (sin frameworks)
+- **Base de Datos:** MySQL 5.7+
+- **Frontend:** HTML5, CSS3 (sin frameworks)
+- **Arquitectura:** MVC (Modelo-Vista-Controlador)
+- **Servidor:** Apache (XAMPP)
 
 ## 📁 Estructura del Proyecto
 
@@ -31,17 +45,14 @@ mvc_programa/
 │   │   ├── footer.php           # Pie común
 │   │   └── login.php            # Vista de login
 │   │
+│   ├── dashboard/
+│   │   └── index.php            # Dashboard principal
+│   │
 │   ├── ambiente/
 │   │   ├── index.php            # Listar historias
 │   │   ├── crear.php            # Crear historia
 │   │   ├── editar.php           # Editar historia
 │   │   └── ver.php              # Ver detalle
-│   │
-│   ├── asignacion/
-│   │   └── index.php            # Módulo asignación
-│   │
-│   ├── calendario/
-│   │   └── index.php            # Módulo calendario
 │   │
 │   ├── competencia/
 │   │   ├── index.php            # Listar historias
@@ -49,51 +60,53 @@ mvc_programa/
 │   │   ├── editar.php           # Editar historia
 │   │   └── ver.php              # Ver detalle
 │   │
-│   ├── competencia_programa/
-│   │   └── index.php            # Módulo competencia programa
-│   │
-│   ├── detalle_asignacion/
-│   │   └── index.php            # Módulo detalle asignación
-│   │
-│   ├── ficha/
-│   │   └── index.php            # Módulo ficha
-│   │
-│   ├── instructor/
-│   │   └── index.php            # Módulo instructor
-│   │
-│   ├── programa/
-│   │   └── index.php            # Módulo programa
-│   │
-│   ├── sede/
-│   │   └── index.php            # Módulo sede
-│   │
-│   └── titulo_programa/
-│       └── index.php            # Módulo título programa
+│   └── [otros módulos]/
+│       └── index.php            # Módulos preparados
 │
 ├── Conexion.php                 # Configuración BD y funciones
+├── Conexion.example.php         # Ejemplo de configuración
 ├── index.php                    # Controlador principal (Router)
 ├── instalar.php                 # Script de instalación automática
 ├── database.sql                 # Script de base de datos
 └── README.md                    # Este archivo
 ```
 
-## 🚀 Instalación
+## 🔧 Instalación
 
-### Requisitos
+### Requisitos Previos
 - XAMPP (Apache + MySQL + PHP 7.4+)
 - Navegador web moderno
+- Git (opcional)
 
 ### Pasos de Instalación
 
-1. **Copiar archivos**
-   - Copiar la carpeta completa a `C:\xampp\htdocs\mvc_programa\`
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/chaustrexp/MVC_proyecto.git
+   cd MVC_proyecto
+   ```
 
-2. **Crear base de datos**
-   - Abrir phpMyAdmin: `http://localhost/phpmyadmin`
-   - Importar el archivo `database.sql`
+2. **Copiar a XAMPP**
+   - Copiar la carpeta completa a `C:\xampp\htdocs\gestion_sena\`
 
-3. **Configurar conexión** (opcional)
-   - Editar `Conexion.php` si tus credenciales son diferentes:
+3. **Iniciar servicios**
+   - Abrir XAMPP Control Panel
+   - Iniciar Apache ✅
+   - Iniciar MySQL ✅
+
+4. **Instalar base de datos**
+   - Opción 1: Ejecutar el instalador automático
+     ```
+     http://localhost/gestion_sena/instalar.php
+     ```
+   - Opción 2: Importar manualmente
+     - Ir a `http://localhost/phpmyadmin`
+     - Crear base de datos `gestion_agil`
+     - Importar `database.sql`
+
+5. **Configurar conexión** (opcional)
+   - Renombrar `Conexion.example.php` a `Conexion.php`
+   - Editar credenciales si son diferentes:
    ```php
    define('DB_HOST', 'localhost');
    define('DB_USER', 'root');
@@ -101,27 +114,58 @@ mvc_programa/
    define('DB_NAME', 'gestion_agil');
    ```
 
-4. **Acceder al sistema**
-   - URL: `http://localhost/mvc_programa/`
-   - Usuario: `admin`
-   - Contraseña: `admin123`
+6. **Acceder al sistema**
+   ```
+   http://localhost/gestion_sena/
+   ```
+   - **Usuario:** admin
+   - **Contraseña:** admin123
 
-## 🎨 Paleta de Colores SENA
+## 📊 Módulos del Sistema
 
-- Verde Principal: `#39A900`
-- Verde Secundario: `#007832`
-- Fondos: Blanco y grises suaves
+### Módulos Implementados (CRUD Completo)
+- ✅ **Dashboard** - Panel de control con estadísticas
+- ✅ **Ambiente** - Gestión completa de historias de usuario
+- ✅ **Competencia** - Gestión completa de historias de usuario
+
+### Módulos Preparados (Estructura Lista)
+- 📦 **Asignación** - Estructura creada, pendiente implementación
+- 📦 **Calendario** - Estructura creada, pendiente implementación
+- 📦 **Competencia Programa** - Estructura creada, pendiente implementación
+- 📦 **Detalle Asignación** - Estructura creada, pendiente implementación
+- 📦 **Ficha** - Estructura creada, pendiente implementación
+- 📦 **Instructor** - Estructura creada, pendiente implementación
+- 📦 **Programa** - Estructura creada, pendiente implementación
+- 📦 **Sede** - Estructura creada, pendiente implementación
+- 📦 **Título Programa** - Estructura creada, pendiente implementación
+
+## 🎨 Características del Dashboard
+
+### Tarjetas de Estadísticas
+- 📊 Total de Historias
+- ⏳ Historias Pendientes
+- ⚙️ Historias en Proceso
+- ✅ Historias Completadas
+
+### Visualizaciones
+- 📈 Gráfico de barras por prioridad (Alta, Media, Baja)
+- 🎯 Círculo de progreso general
+- 📋 Tabla de últimas historias registradas
+- ⚡ Accesos rápidos a funciones principales
 
 ## 🗄️ Base de Datos
 
 ### Tabla: usuarios
+```sql
 - id (INT, PK, AUTO_INCREMENT)
 - usuario (VARCHAR)
 - password (VARCHAR)
 - nombre (VARCHAR)
 - fecha_registro (TIMESTAMP)
+```
 
 ### Tabla: historias_usuario
+```sql
 - id (INT, PK, AUTO_INCREMENT)
 - rol (VARCHAR)
 - funcionalidad (VARCHAR)
@@ -131,46 +175,31 @@ mvc_programa/
 - estado (ENUM: Pendiente, Proceso, Completado)
 - fecha_creacion (TIMESTAMP)
 - fecha_actualizacion (TIMESTAMP)
+```
 
-## 🔧 Funcionalidades
+## 🔒 Seguridad
 
-### Módulos Implementados (CRUD Completo)
-- ✅ **Ambiente**: Gestión completa de historias de usuario
-- ✅ **Competencia**: Gestión completa de historias de usuario
+- ✅ Prepared statements para prevenir SQL injection
+- ✅ Función `limpiar_dato()` para sanitizar entradas
+- ✅ Validación de sesiones en todas las páginas protegidas
+- ✅ htmlspecialchars() para prevenir XSS
+- ✅ Verificación de permisos por módulo
 
-### Módulos Preparados (Estructura Lista)
-- 📦 **Asignación**: Estructura creada, pendiente implementación
-- 📦 **Calendario**: Estructura creada, pendiente implementación
-- 📦 **Competencia Programa**: Estructura creada, pendiente implementación
-- 📦 **Detalle Asignación**: Estructura creada, pendiente implementación
-- 📦 **Ficha**: Estructura creada, pendiente implementación
-- 📦 **Instructor**: Estructura creada, pendiente implementación
-- 📦 **Programa**: Estructura creada, pendiente implementación
-- 📦 **Sede**: Estructura creada, pendiente implementación
-- 📦 **Título Programa**: Estructura creada, pendiente implementación
+## 🎨 Paleta de Colores SENA
 
-### Modelo (Model)
-- `model/HistoriaUsuario.php`: Maneja toda la lógica de datos
-  - obtenerTodas()
-  - obtenerPorId($id)
-  - crear($datos)
-  - actualizar($id, $datos)
-  - eliminar($id)
-
-### Vista (View)
-- `views/layout/`: Plantillas comunes (header, footer, login)
-- `views/ambiente/`: Vistas del módulo Ambiente
-- `views/competencia/`: Vistas del módulo Competencia
-
-### Controlador (Controller)
-- `index.php`: Router principal que maneja todas las rutas
-- `Conexion.php`: Configuración y funciones auxiliares
+- **Verde Principal:** `#39A900`
+- **Verde Secundario:** `#007832`
+- **Fondos:** Blanco y grises suaves
+- **Acentos:** Colores para estados y prioridades
 
 ## 🛣️ Rutas del Sistema
 
 ### Autenticación
 - `?action=login` - Pantalla de login
 - `?action=logout` - Cerrar sesión
+
+### Dashboard
+- `?action=dashboard` - Panel de control principal
 
 ### Módulo Ambiente
 - `?action=ambiente` - Listar historias
@@ -184,30 +213,12 @@ mvc_programa/
 - `?action=competencia_editar&id=X` - Editar historia
 - `?action=competencia_ver&id=X` - Ver detalle
 
-## 🔒 Seguridad
-
-- Prepared statements para prevenir SQL injection
-- Función `limpiar_dato()` para sanitizar entradas
-- Validación de sesiones en todas las páginas protegidas
-- htmlspecialchars() para prevenir XSS
-- Verificación de permisos por módulo
-
-## 🎨 Diseño
-
-- Sidebar fijo con menú de navegación
-- Topbar con información de usuario
-- Cards con sombras suaves
-- Tabla responsive con hover effects
-- Botones con transiciones
-- Badges de colores por estado
-- Formularios con estilos modernos
-
-## 📱 Responsive
+## 📱 Responsive Design
 
 El sistema es completamente responsive y se adapta a:
-- Desktop (1024px+)
-- Tablet (768px - 1023px)
-- Mobile (< 768px)
+- 💻 Desktop (1024px+)
+- 📱 Tablet (768px - 1023px)
+- 📱 Mobile (< 768px)
 
 ## 🐛 Solución de Problemas
 
@@ -224,15 +235,6 @@ El sistema es completamente responsive y se adapta a:
 - Verificar ruta del archivo CSS en header.php
 - Limpiar caché del navegador
 
-## 👨‍💻 Tecnologías Utilizadas
-
-- PHP 7.4+ (sin frameworks)
-- MySQL 5.7+
-- HTML5
-- CSS3 (sin frameworks)
-- Arquitectura MVC
-- JavaScript (mínimo)
-
 ## 📝 Extensión del Sistema
 
 Para agregar nuevos módulos:
@@ -243,12 +245,34 @@ Para agregar nuevos módulos:
 4. Agregar enlace en `views/layout/header.php`
 5. Opcional: Crear modelo específico en `model/`
 
+## 👨‍💻 Autor
+
+**Cristian Chaustre**
+- Email: cristianchaustre90@gmail.com
+- GitHub: [@chaustrexp](https://github.com/chaustrexp)
+
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Para cambios importantes:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto es de uso educativo para el SENA - Servicio Nacional de Aprendizaje.
+
 ## 🎓 Desarrollado para SENA
 
 Sistema educativo para gestión de metodologías ágiles con arquitectura MVC y colores institucionales del Servicio Nacional de Aprendizaje.
 
 ---
 
-**Versión:** 2.0.0 (MVC)  
+**Versión:** 2.0.0 (MVC + Dashboard)  
 **Fecha:** 2026  
 **Licencia:** Uso educativo
+
+⭐ Si este proyecto te fue útil, considera darle una estrella en GitHub!
